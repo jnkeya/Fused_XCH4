@@ -3,7 +3,6 @@
 ## Daily Fused XCH4 (2020-2023, Full Outputs)
 # Fusion priority: GOSAT-2 -> TROPOMI -> GOSAT
 # Saves fused_xch4, fused_time, fused_source, fused_alt
-# Plus all individual resampled maps and coverage values.
 
 import os
 import numpy as np

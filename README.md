@@ -20,7 +20,7 @@ Independent validation at withheld TCCON stations demonstrates robust performanc
 
 ## Dataset
 
-The dataset is available on Zenodo: 10.5281/zenodo.18714293 
+The dataset is available on Zenodo: https://doi.org/10.5281/zenodo.18714293
 
 ### Technical Details
 
@@ -163,7 +163,7 @@ If you use this dataset, please cite:
 
 > [Paper citation — to be added upon publication]
 >
-> Dataset: [10.5281/zenodo.18714293]
+> Dataset: https://doi.org/10.5281/zenodo.18714293
 
 ---
 

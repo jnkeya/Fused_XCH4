@@ -93,16 +93,13 @@ fused_xch4_YYYYMM_mean.h5
 
 ## File Compression
 
-All HDF5 files use internal gzip compression (level 4). Files can be read directly — no manual decompression needed:
+All HDF5 files use internal gzip compression. Files can be read directly
 
 ```python
 import h5py
 with h5py.File("fused_xch4_202101.h5", "r") as f:
     xch4 = f["20210101/fused_xch4"][:]  # decompresses automatically
 ```
-
-Compression reduces file size by ~98% compared to uncompressed storage. Total dataset size for 4 years is ~3.3 GB (daily + monthly mean).
-
 ---
 
 ## Usage

@@ -151,8 +151,9 @@ See `example_usage.py` for complete examples including global and regional maps,
 
 ```
 Fused_XCH4/
-├── README.md          — this file
-└── example_usage.py   — complete usage examples
+├── README.md                — this file
+├── example_usage.py         — complete usage examples
+└── fused_xch4_daily.py      — daily fusion pipeline (GOSAT-2 → TROPOMI → GOSAT)
 ```
 
 ---

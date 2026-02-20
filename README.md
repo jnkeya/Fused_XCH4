@@ -107,9 +107,6 @@ See `example_usage.py` for complete examples including global mapping, regional 
 Fused_XCH4/
 ├── README.md              — this file
 ├── example_usage.py       — complete usage examples
-└── processing/
-    ├── fusion_daily.py    — daily fusion script
-    └── convert_monthly.py — conversion to monthly HDF5
 ```
 
 ---

@@ -1,5 +1,11 @@
 # Fused_XCH4
 
+**Global Daily Fused XCH4 Dataset (2020–2023): Multi-Sensor Integration of GOSAT-2, TROPOMI, and GOSAT at 0.1° Resolution**
+
+---
+
+## Overview
+
 This repository provides code and usage examples for the first global fusion of GOSAT, GOSAT-2, and TROPOMI satellite retrievals, generating a globally consistent daily 0.1° land-only XCH4 product for 2020–2023.
 
 Accurate global monitoring of atmospheric methane (CH4) is essential for tracking progress toward climate mitigation targets such as the Global Methane Pledge (GMP). Ground-based measurement networks are too sparse to provide sufficient spatial coverage, while satellite-derived retrievals are hindered by systematic biases and uncertainties. This dataset addresses these limitations through a three-step machine learning framework:
@@ -7,7 +13,14 @@ Accurate global monitoring of atmospheric methane (CH4) is essential for trackin
 1. Sensor-specific bias correction using TCCON ground-based observations
 2. Cross-sensor harmonization to GOSAT-2 as the reference sensor
 3. Priority-based fusion: GOSAT-2 → TROPOMI → GOSAT
+
 Independent validation at withheld TCCON stations demonstrates robust performance (R² = 0.81, RMSE = 10.78 ppb), outperforming standard and operational bias-corrected satellite products.
+
+---
+
+## Dataset
+
+The dataset is available on Zenodo: **[Zenodo DOI — add link]**
 
 ### Technical Details
 
@@ -20,11 +33,12 @@ Independent validation at withheld TCCON stations demonstrates robust performanc
 | Satellites | GOSAT, GOSAT-2, TROPOMI |
 | Fusion priority | GOSAT-2 → TROPOMI → GOSAT |
 | Bias correction | ML-based (XGBoost/Random Forest), calibrated against TCCON |
-| Validation (Unseen TCCON) | R² = 0.81, RMSE = 10.78 ppb |
+| Validation | R² = 0.81, RMSE = 10.78 ppb |
 | File format | HDF5 (.h5) with gzip compression |
 | Grid reference | WGS84 |
 
 ### File Structure
+
 48 HDF5 files total (12 months × 4 years), each containing all daily data for that month:
 
 ```
@@ -33,6 +47,9 @@ fused_xch4_202002.h5   ← February 2020, contains all days
 ...
 fused_xch4_202312.h5   ← December 2023, contains all days
 ```
+
+
+
 Each monthly file contains all daily data for that month:
 
 ```
@@ -47,6 +64,20 @@ fused_xch4_YYYYMM.h5
 ```
 
 > **Note:** NaN values indicate ocean pixels or land pixels with no valid satellite retrieval for that day.
+
+Each monthly mean file contains:
+
+```
+fused_xch4_YYYYMM_mean.h5
+├── fused_xch4  (1400, 3600)  monthly mean XCH4 in ppb
+├── n_days      (1400, 3600)  number of valid days per pixel
+├── lat         (1400,)       1D latitude array
+├── lon         (3600,)       1D longitude array
+├── year        scalar        year
+└── month       scalar        month
+```
+
+> **Note:** n_days indicates how many valid daily retrievals contributed to each pixel's mean. Pixels with n_days = 0 are NaN.
 
 ---
 
@@ -105,10 +136,28 @@ See `example_usage.py` for complete examples including global mapping, regional 
 
 ```
 Fused_XCH4/
-├── README.md              — this file
-├── example_usage.py       — complete usage examples
+├── README.md          — this file
+└── example_usage.py   — complete usage examples (load, map, extract, time series)
 ```
 
 ---
 
+## Citation
 
+If you use this dataset, please cite:
+
+> [Paper citation — to be added upon publication]
+> 
+> Dataset: [Zenodo DOI — to be added]
+
+---
+
+## License
+
+This dataset is released under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+
+---
+
+## Contact
+
+For questions, please open a GitHub issue or contact the corresponding author.

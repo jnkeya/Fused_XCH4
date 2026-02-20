@@ -23,22 +23,17 @@ Independent validation at withheld TCCON stations demonstrates robust performanc
 | Validation (Unseen TCCON) | R² = 0.81, RMSE = 10.78 ppb |
 | File format | HDF5 (.h5) with gzip compression |
 | Grid reference | WGS84 |
+
 ### File Structure
-
-Files are organized by year, with one HDF5 file per month:
+48 HDF5 files total (12 months × 4 years), each containing all daily data for that month:
 
 ```
-Fused_XCH4/
-├── 2020/
-│   ├── fused_xch4_202001.h5
-│   ├── fused_xch4_202002.h5
-│   └── ...
-├── 2021/
-├── 2022/
-└── 2023/
+fused_xch4_202001.h5   ← January 2020, contains all days
+fused_xch4_202002.h5   ← February 2020, contains all days
+...
+fused_xch4_202312.h5   ← December 2023, contains all days
 ```
-
-Each monthly HDF5 file contains:
+Each monthly file contains all daily data for that month:
 
 ```
 fused_xch4_YYYYMM.h5

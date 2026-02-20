@@ -20,7 +20,7 @@ Independent validation at withheld TCCON stations demonstrates robust performanc
 
 ## Dataset
 
-The dataset is available on Zenodo: **[Zenodo DOI — add link]**
+The dataset is available on Zenodo: 10.5281/zenodo.18714293 
 
 ### Technical Details
 
@@ -90,16 +90,13 @@ fused_xch4_YYYYMM_mean.h5
 
 ## File Compression
 
-All HDF5 files use internal gzip compression (level 4). Files can be read directly — no manual decompression needed:
+All HDF5 files use internal gzip compression. Files can be read directly :
 
 ```python
 import h5py
 with h5py.File("fused_xch4_202101.h5", "r") as f:
     xch4 = f["20210101/fused_xch4"][:]  # decompresses automatically
 ```
-
-Compression reduces file size by ~98% compared to uncompressed storage. Total dataset size for 4 years is ~3 GB (daily + monthly mean).
-
 ---
 
 ## Usage
@@ -166,7 +163,7 @@ If you use this dataset, please cite:
 
 > [Paper citation — to be added upon publication]
 >
-> Dataset: [Zenodo DOI — to be added]
+> Dataset: [10.5281/zenodo.18714293]
 
 ---
 

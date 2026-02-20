@@ -27,7 +27,7 @@ The dataset is available on Zenodo: https://doi.org/10.5281/zenodo.18714293
 | Parameter | Value |
 |-----------|-------|
 | Spatial resolution | 0.1° × 0.1° |
-| Spatial coverage | 70°S–70°N, global land |
+| Spatial coverage | 60°S–80°N, global land |
 | Temporal coverage | 2020–2023 (daily and monthly mean) |
 | Units | ppb (parts per billion) |
 | Satellites | GOSAT, GOSAT-2, TROPOMI |

@@ -20,7 +20,7 @@ Independent validation at withheld TCCON stations demonstrates robust performanc
 | Satellites | GOSAT, GOSAT-2, TROPOMI |
 | Fusion priority | GOSAT-2 → TROPOMI → GOSAT |
 | Bias correction | ML-based (XGBoost/Random Forest), calibrated against TCCON |
-| Validation | R² = 0.81, RMSE = 10.78 ppb |
+| Validation (Unseen TCCON) | R² = 0.81, RMSE = 10.78 ppb |
 | File format | HDF5 (.h5) with gzip compression |
 | Grid reference | WGS84 |
 ### File Structure

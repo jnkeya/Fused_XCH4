@@ -1,6 +1,6 @@
 ##"""@yixi"""
 ##________Date : 2025/09/07
-## Daily Fused XCH4 (Year-Specific, Full Outputs)
+## Daily Fused XCH4 (2020-2023)
 # Fusion priority: GOSAT-2 -> TROPOMI -> GOSAT
 # Saves fused_xch4, fused_time, fused_source, fused_alt
 # Plus all individual resampled maps and coverage values.
@@ -13,14 +13,11 @@ import pyresample
 import h5py
 
 # ===== CONFIG =====
-YEAR      = 2020  # <<< CHANGE THIS PER RUN
 path_data = "/share/air-3/XCH4_Estimation/data/"
 
 path_gosat  = os.path.join(path_data, "bias_correction/GOSAT/GOSAT_XGB_BC_G2_XCH42020to2023.csv")
 path_gosat2 = os.path.join(path_data, "bias_correction/GOSAT2/RF/GOSAT2_RF_BiasCorrected_XCH42020to2023.csv")
 path_trop   = os.path.join(path_data, "bias_correction/TROPOMI/XGB_G2/monthly/")
-path_out    = os.path.join(path_data, f"Fused_XCH4_{YEAR}")
-os.makedirs(path_out, exist_ok=True)
 
 # ===== GRID & LANDMASK =====
 grid     = sio.loadmat(os.path.join(path_data, "grid/grid_TROPOMI_01degree.mat"))
@@ -40,7 +37,7 @@ gosat2_df = pd.read_csv(path_gosat2, parse_dates=["time"])
 
 
 # ===== PROCESS ONE DAY =====
-def process_day(day_str):
+def process_day(day_str, path_out):
     year, month = day_str[:4], day_str[4:6]
 
     gosat_day  = gosat_df[gosat_df["time"].dt.strftime("%Y%m%d") == day_str]
@@ -51,9 +48,9 @@ def process_day(day_str):
         print(f"Missing TROPOMI file for {day_str}")
         return
 
-    trop_df       = pd.read_hdf(trop_file, key="data")
+    trop_df         = pd.read_hdf(trop_file, key="data")
     trop_df["time"] = pd.to_datetime(trop_df["time"], errors="coerce")
-    trop_day      = trop_df[trop_df["time"].dt.strftime("%Y%m%d") == day_str]
+    trop_day        = trop_df[trop_df["time"].dt.strftime("%Y%m%d") == day_str]
 
     # --- Datasets to resample ---
     maps = {
@@ -139,6 +136,10 @@ def process_day(day_str):
     print(f"{day_str} | Fused Coverage: {coverage['coverage_fused']:.2f}%")
 
 
-# ===== RUN =====
-for date in pd.date_range(f"{YEAR}-01-01", f"{YEAR}-12-31"):
-    process_day(date.strftime("%Y%m%d"))
+# ===== RUN 2020-2023 =====
+for YEAR in range(2020, 2024):
+    print(f"\n===== Processing {YEAR} =====")
+    path_out = os.path.join(path_data, f"Fused_XCH4_{YEAR}")
+    os.makedirs(path_out, exist_ok=True)
+    for date in pd.date_range(f"{YEAR}-01-01", f"{YEAR}-12-31"):
+        process_day(date.strftime("%Y%m%d"), path_out)

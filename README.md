@@ -18,18 +18,6 @@ Independent validation at withheld TCCON stations demonstrates robust performanc
 
 ---
 
-## ✨ What's New in v2
-
-Version 2 is the recommended version. Key changes from v1:
-
-- **All source sensor retrievals included** — individual GOSAT, GOSAT-2, and TROPOMI XCH4 fields are now provided alongside the fused product
-- **CF-style metadata** — all variables include `long_name`, `units`, and `comment` HDF5 attributes
-- **Renamed variables** for clarity and interoperability (see [CHANGELOG.md](CHANGELOG.md))
-- **Sensor ID fill value** changed from NaN to `-127` (int8) for ocean/missing pixels
-
-See [CHANGELOG.md](CHANGELOG.md) for the full variable name mapping (v1 → v2).
-
----
 
 ## Dataset
 
@@ -184,5 +172,4 @@ This dataset is released under the [Creative Commons Attribution 4.0 Internation
 
 ## Contact
 
-For questions, please open a GitHub issue or contact the corresponding author.
-Additional processing scripts available upon request from the corresponding author.
+For questions, please contact jnkeya@unist.ac.kr. Additional processing scripts available upon request.

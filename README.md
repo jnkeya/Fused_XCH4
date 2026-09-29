@@ -157,8 +157,7 @@ Fused_XCH4/
 
 If you use this dataset, please cite:
 
-> [Paper citation — to be added upon publication]
->
+> Keya, J. N., Kim, Y., Choi, H., and Im, J.: Enhanced methane monitoring: a globally harmonized daily 0.1° XCH4 through machine learning-based fusion of GOSAT, GOSAT-2, and TROPOMI, Atmos. Meas. Tech., 19, 4313–4334, https://doi.org/10.5194/amt-19-4313-2026, 2026.
 > v2 Dataset: https://doi.org/10.5281/zenodo.20304047
 > v1 Dataset: https://doi.org/10.5281/zenodo.18714293
 
